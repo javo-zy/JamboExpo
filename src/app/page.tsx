@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Main2 from "./components/main-view/main";
-
+import Worker from "./components/worker/worker";
 export default function Home() {
   return (
     
     <div>
       
-      <Main2 />
+      <Worker />
      
     </div>
   );
