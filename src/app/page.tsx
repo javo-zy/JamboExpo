@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Main2 from "./components/main-view/main";
+import Notify from "./components/Notificaciones-view/notify";
 
 export default function Home() {
   return (
     
     <div>
       
-      <Main2 />
+      <Notify />
      
     </div>
   );
