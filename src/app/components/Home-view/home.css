@@ -1,0 +1,106 @@
+/* === Estilo general del contenedor === */
+.home-container {
+ font-family: Arial, sans-serif;
+}
+/* === Navbar === */
+.navbar {
+ display: flex;
+ justify-content: space-between;
+ padding: 20px;
+ background-color: white;
+ border-bottom: 1px solid #ddd;
+}
+.logo {
+ font-weight: bold;
+ font-size: 24px;
+ color: #e51d2a;
+}
+.navbar nav a {
+ margin: 0 10px;
+ text-decoration: none;
+ color: #333;
+}
+/* === Sección principal === */
+.hero-section {
+ display: flex;
+ flex-wrap: wrap;
+ padding: 40px;
+ background: #f9f9f9;
+ align-items: center;
+ justify-content: space-between;
+}
+/* === Contenido del texto === */
+.text-content {
+ max-width: 50%;
+}
+.text-content h1 {
+ font-size: 40px;
+ margin-bottom: 10px;
+}
+.text-content p {
+ margin: 20px 0;
+ font-size: 18px;
+ line-height: 1.5;
+}
+/* === Formulario rojo === */
+.form-section {
+ background: #9c1c3b;
+ padding: 20px;
+ color: white;
+ border-radius: 10px;
+ margin-bottom: 20px;
+}
+.form-section h2 {
+ margin-bottom: 10px;
+ font-size: 20px;
+}
+.form-section form {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+}
+.form-section input {
+ padding: 10px;
+ flex: 1 1 30%;
+ border: none;
+ border-radius: 5px;
+}
+.form-section button {
+ background-color: orange;
+ border: none;
+ padding: 10px 20px;
+ color: white;
+ border-radius: 5px;
+ cursor: pointer;
+}
+/* === Cuadro gris (Call/Text Us) === */
+.call-box {
+ background: #555;
+ color: white;
+ padding: 15px;
+ border-radius: 10px;
+ max-width: 300px;
+ margin-top: 20px;
+}
+.call-box h3 {
+ margin: 0 0 5px 0;
+ font-size: 18px;
+}
+.call-box p {
+ font-size: 16px;
+ font-weight: bold;
+ margin: 5px 0;
+}
+.call-box small {
+ font-size: 12px;
+ color: #ccc;
+}
+/* === Imagen === */
+.image-container {
+ flex-shrink: 0;
+}
+.worker-img {
+ width: 350px;
+ border-radius: 10px;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
