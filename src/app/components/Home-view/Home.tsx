@@ -3,6 +3,7 @@ import React from 'react';
 import './home.css';
 import Image from 'next/image';
 import wk from '../../../../public/worker.png';
+
 export default function HomePage() {
  return (
 <main className="home-container">
