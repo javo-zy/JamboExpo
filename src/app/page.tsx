@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Main2 from "./components/main-view/main";
-import Notify from "./components/Notificaciones-view/notify";
+import Preview from "./components/preview-view/preview";
 
 export default function Home() {
   return (
     
     <div>
       
-      <Notify />
-     
+      <Preview/>
+  
     </div>
   );
 }
