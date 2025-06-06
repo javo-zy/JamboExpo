@@ -1,4 +1,3 @@
-'use client';
 import React, { useState } from 'react';
 interface Contact {
  name: string;
@@ -20,10 +19,9 @@ export default function MessagesView() {
    },
    sidebar: {
      width: '25%',
-     backgroundColor: '#b30000',
+     backgroundColor: '#30000',
      color: 'white',
      padding: '1rem',
-     overflowY: 'auto' as const,
    },
    input: {
      width: '100%',
@@ -35,19 +33,12 @@ export default function MessagesView() {
    ul: {
      listStyle: 'none',
      padding: 0,
-     margin: 0,
    },
    li: {
      display: 'flex',
      alignItems: 'center',
      marginBottom: '1rem',
      cursor: 'pointer',
-     padding: '0.5rem',
-     borderRadius: '8px',
-     transition: 'background 0.2s',
-   },
-   liHover: {
-     backgroundColor: '#800000',
    },
    img: {
      width: '40px',
@@ -59,7 +50,6 @@ export default function MessagesView() {
      flex: 1,
      backgroundColor: '#f0f0f0',
      padding: '1rem',
-     overflowY: 'auto' as const,
    },
    chatHeader: {
      display: 'flex',
@@ -73,56 +63,47 @@ export default function MessagesView() {
      marginRight: '1rem',
    },
    messages: {
-     backgroundColor: 'black',
+     backgroundColor: 'white',
      padding: '1rem',
      borderRadius: '10px',
      display: 'flex',
      flexDirection: 'column' as const,
-     gap: '0.5rem',
    },
    messageLeft: {
      backgroundColor: '#dfe6e9',
      padding: '0.5rem 1rem',
      borderRadius: '20px',
      maxWidth: '60%',
+     marginBottom: '0.5rem',
      alignSelf: 'flex-start' as const,
    },
    messageRight: {
-     backgroundColor: '#74b9f',
+     backgroundColor: '#74b9ff',
      color: 'white',
      padding: '0.5rem 1rem',
      borderRadius: '20px',
      maxWidth: '60%',
+     marginBottom: '0.5rem',
      alignSelf: 'flex-end' as const,
    },
  };
  return (
 <div style={styles.container}>
-     {/* Sidebar */}
 <div style={styles.sidebar}>
 <h2>Messages</h2>
 <input type="text" placeholder="Find your contact" style={styles.input} />
 <ul style={styles.ul}>
          {contacts.map((contact, index) => (
-<li
-             key={index}
-             style={styles.li}
-             onClick={() => setSelectedContact(contact)}
->
+<li key={index} style={styles.li} onClick={() => setSelectedContact(contact)}>
 <img src={contact.image} alt={contact.name} style={styles.img} />
 <span>{contact.name}</span>
 </li>
          ))}
 </ul>
 </div>
-     {/* Chat section */}
 <div style={styles.chat}>
 <div style={styles.chatHeader}>
-<img
-           src={selectedContact.image}
-           alt={selectedContact.name}
-           style={styles.chatHeaderImg}
-         />
+<img src={selectedContact.image} alt={selectedContact.name} style={styles.chatHeaderImg} />
 <div>
 <h3>{selectedContact.name}</h3>
 <p>{selectedContact.role}</p>
