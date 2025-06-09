@@ -1,19 +1,19 @@
 import React from 'react';
 
 interface ButtonProps {
-  children: React.ReactNode; // El contenido del botón (texto, íconos, etc.)
-  onClick?: () => void; // Función que se ejecuta al hacer clic
-  variant?: 'primary' | 'secondary' | 'outline'; // Estilo del botón
-  type?: 'button' | 'submit' | 'reset'; // Tipo de botón HTML
-  className?: string; // Clases adicionales de Tailwind
-  disabled?: boolean; // Para deshabilitar el botón
+  children: React.ReactNode; 
+  onClick?: () => void; 
+  variant?: 'primary' | 'secondary' | 'outline'; 
+  type?: 'button' | 'submit' | 'reset'; 
+  className?: string; 
+  disabled?: boolean; 
 }
 
 export default function Button({
   children,
   onClick,
-  variant = 'primary', // Valor por defecto
-  type = 'button', // Valor por defecto
+  variant = 'primary', 
+  type = 'button', 
   className = '',
   disabled = false,
 }: ButtonProps) {

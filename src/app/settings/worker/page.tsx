@@ -10,7 +10,7 @@ export default function WorkerSettingsPage() {
 
       <div className="bg-white rounded-lg shadow-md p-6 md:p-8 max-w-3xl mx-auto">
         <form className="space-y-8">
-          {/* Sección de Información Personal */}
+
           <section>
             <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-red-700 pb-2 mb-6">
               Información Personal
@@ -132,7 +132,7 @@ export default function WorkerSettingsPage() {
             </div>
           </section>
 
-          {/* Sección de Servicios y Horarios */}
+          
           <section>
             <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-red-700 pb-2 mb-6">
               Servicios y Disponibilidad
@@ -193,7 +193,7 @@ export default function WorkerSettingsPage() {
             </div>
           </section>
 
-          {/* Sección de Certificados (Opcional) */}
+          
           <section>
             <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-red-700 pb-2 mb-6">
               Certificaciones (Opcional)

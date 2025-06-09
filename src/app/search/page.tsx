@@ -100,7 +100,6 @@ export default function SearchPage() {
             </label>
           </div>
 
-          {/* Ubicación */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-700 mb-3">Ubicación</h3>
             <label className="flex items-center mb-2">
@@ -117,7 +116,7 @@ export default function SearchPage() {
             </label>
           </div>
 
-          {/* Nivel */}
+          
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-700 mb-3">Nivel</h3>
             <label className="flex items-center mb-2">
@@ -135,7 +134,7 @@ export default function SearchPage() {
           </div>
         </aside>
 
-        {/* Columna de Resultados de la Búsqueda */}
+        
         <main className="w-full md:w-3/4">
           <div className="grid grid-cols-1 gap-6">
             {professionals.map((professional) => (

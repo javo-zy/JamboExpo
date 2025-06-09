@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Para optimizar imágenes de Next.js
+import Image from 'next/image'; 
 
 export default function Header() {
   return (

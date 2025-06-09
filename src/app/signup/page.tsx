@@ -13,7 +13,7 @@ export default function SignUpPage() {
             ¡Bienvenido! Por favor, completa los detalles para empezar
           </p>
         </div>
-        {/* Opciones de registro social (Google) */}
+        
         <div className="mt-8 space-y-4">
           <button className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             {/* Aquí podrías poner un ícono de Google SVG */}
@@ -29,7 +29,7 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        {/* Formulario de registro */}
+        
         <form className="mt-8 space-y-6" action="#" method="POST">
           <div>
             <label htmlFor="username" className="sr-only">Nombre de usuario</label>
@@ -92,7 +92,7 @@ export default function SignUpPage() {
           </Link>
         </form>
 
-        <div className="text-center text-sm">
+        <div className="text-center text-sm text-black">
           ¿Ya tienes una cuenta?{' '}
           <Link href="/signin" className="font-medium text-red-600 hover:text-red-500">
             Iniciar sesión
