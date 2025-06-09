@@ -5,22 +5,24 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
-      {/* Sección principal (hero) con imagen de fondo - Más fiel al diseño de Home.jpg */}
+      
       <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white overflow-hidden p-4">
         <Image
-          src="/images/backgrounds/hero-background.jpg" // Imagen del diseño Home.jpg
+          src="/images/backgrounds/hero-background.jpg" 
           alt="Profesional trabajando"
-          fill // La imagen llenará el contenedor
+          fill 
           style={{ objectFit: 'cover', objectPosition: 'center' }}
-          className="absolute inset-0 z-0 brightness-[0.7]" // Oscurecer un poco la imagen
-          priority // Carga prioritaria para la imagen principal
+          className="absolute inset-0 z-0 brightness-[0.7]" 
+          priority
         />
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
             ¿Necesitas una reparación rápida?
           </h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/search">
             <Button className="px-6 py-3 rounded-full text-lg">Buscar Ahora</Button>
+            </Link>
             <Button variant="outline" className="px-6 py-3 rounded-full text-lg border-white text-white hover:bg-white hover:text-red-700">
               Llámanos/Envíanos un mensaje
             </Button>
@@ -28,8 +30,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección "About us" con imagen - Fiel al diseño de Home.jpg */}
-      <section className="py-16 px-4 bg-white w-full">
+      
+      <section id="aboutus"className="py-16 px-4 bg-white w-full">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Sobre Nosotros</h2>
@@ -39,7 +41,7 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <Image
-              src="/images/backgrounds/about-us-placeholder.jpg" // Placeholder para la imagen de "About us" en Home.jpg
+              src="/images/backgrounds/about-us-placeholder.jpg" 
               alt="Sobre nosotros"
               width={500}
               height={350}
@@ -49,26 +51,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección "Services" - Fiel al diseño de Home.jpg */}
-      <section className="py-16 px-4 w-full bg-gray-50">
+      
+      <section id="ourservices" className="py-16 px-4 w-full bg-gray-50">
         <h2 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">Nuestros Servicios</h2>
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-          {/* Tarjeta de Electricista */}
+        
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/electrician.jpg" // Imagen de electricista en Home.jpg
+              src="/images/services/electrician.jpg" 
               alt="Electricista"
-              width={250} // Ajustado para un mejor tamaño visual
+              width={250} 
               height={200}
               className="rounded-md object-cover mb-4"
             />
             <h3 className="text-xl font-semibold text-gray-800">Electricista</h3>
             <p className="text-gray-600 text-sm mt-2">Instalaciones, reparaciones, cableado.</p>
           </div>
-          {/* Tarjeta de Albañil */}
+
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/mason.jpg" // Imagen de albañil en Home.jpg
+              src="/images/services/mason.jpg" 
               alt="Albañil"
               width={250}
               height={200}
@@ -77,10 +79,10 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-gray-800">Albañil</h3>
             <p className="text-gray-600 text-sm mt-2">Construcción y reparación de estructuras.</p>
           </div>
-          {/* Tarjeta de Fontanero */}
+          
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/plumber.jpg" // Imagen de fontanero en Home.jpg
+              src="/images/services/plumber.jpg" 
               alt="Fontanero"
               width={250}
               height={200}
@@ -92,11 +94,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección "How does it work?" (Para Clientes) - Fiel al diseño de Home.jpg */}
-      <section className="py-16 px-4 w-full bg-red-700 text-white">
+      
+      <section id='functions' className="py-16 px-4 w-full bg-red-700 text-white">
         <h2 className="text-4xl font-extrabold mb-12 text-center">¿Cómo funciona?</h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Columna para Clientes */}
+          
           <div className="flex flex-col items-center text-center">
             <h3 className="font-semibold text-3xl mb-8">Para Clientes</h3>
             <div className="space-y-8">
@@ -118,7 +120,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Columna para Expertos */}
+          
           <div className="flex flex-col items-center text-center mt-12 md:mt-0">
             <h3 className="font-semibold text-3xl mb-8">Para Expertos</h3>
             <div className="space-y-8">
@@ -142,13 +144,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección "More questions?" - Fiel al diseño de Home.jpg */}
-      <section className="py-16 px-4 w-full bg-white text-center">
+      <section id='questions' className="py-16 px-4 w-full bg-white text-center">
         <h2 className="text-4xl font-extrabold text-gray-900 mb-6">¿Más preguntas?</h2>
         <p className="text-xl text-gray-600 mb-8">
           Visita nuestra sección de preguntas frecuentes o contáctanos.
         </p>
-        <Button variant="outline" as={Link} href="/faq">Ir a Preguntas Frecuentes</Button>
+
+        <Link href="/faq">
+        <Button variant="outline" >Ir a Preguntas Frecuentes</Button>
+        </Link>
       </section>
     </div>
   );

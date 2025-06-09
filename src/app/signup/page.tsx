@@ -85,9 +85,11 @@ export default function SignUpPage() {
             />
           </div>
 
+          <Link href="/">
           <Button type="submit" className="w-full">
             Continuar
           </Button>
+          </Link>
         </form>
 
         <div className="text-center text-sm">

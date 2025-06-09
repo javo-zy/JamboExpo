@@ -76,9 +76,12 @@ export default function SignInPage() {
             </div>
           </div>
 
+          <Link href="/welcome-back">
           <Button type="submit" className="w-full">
             Iniciar sesión
           </Button>
+          </Link>
+          
         </form>
 
         <div className="text-center text-sm">
