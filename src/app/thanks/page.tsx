@@ -16,9 +16,12 @@ export default function ThanksPage() {
           Ahora puedes iniciar sesión y explorar todos los servicios que Jambo tiene para ofrecerte.
         </p>
         <div className="mt-6">
-          <Button as={Link} href="/signin" className="w-full">
+
+          <Link href="/signin">
+          <Button className="w-full">
             Ir a Iniciar Sesión
           </Button>
+          </Link>
         </div>
         <div className="text-center text-sm mt-4">
           <Link href="/" className="font-medium text-red-600 hover:text-red-500">
