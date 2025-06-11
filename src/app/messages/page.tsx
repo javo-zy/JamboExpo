@@ -1,175 +1,164 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Button from '@/components/Button';
 
+// --- Definición de Tipos ---
 interface Message {
   id: number;
   sender: 'me' | 'other';
   text: string;
-  time: string;
 }
 
 interface Conversation {
   id: string;
   name: string;
-  lastMessage: string;
-  time: string;
-  avatarUrl?: string;
+  role: string;
 }
 
-export default function MessagesPage() {
-  const [selectedConversation, setSelectedConversation] = useState<string | null>('1');
-  const [currentMessage, setCurrentMessage] = useState<string>('');
+// Array de colores para los avatares generados
+const avatarColors = ['bg-blue-500', 'bg-emerald-500', 'bg-purple-500', 'bg-amber-500', 'bg-indigo-500'];
 
+export default function MessagesPage() {
+  // --- Estado ---
+  const [selectedConversationId, setSelectedConversationId] = useState<string>('1');
+  // Se restaura el mensaje del input para que coincida con la primera imagen
+  const [currentMessage, setCurrentMessage] = useState<string>(
+    'Hi mario, now I had a problem with the wall of my house.'
+  );
+
+  // --- Datos de la Maqueta (con todos los usuarios restaurados) ---
   const conversations: Conversation[] = [
     {
       id: '1',
       name: 'Mario Rivas',
-      lastMessage: 'Ok, nos vemos el lunes a las 9 AM.',
-      time: '10:30 AM',
-      avatarUrl: '/images/professionals/mario-rivas.jpg',
+      role: 'Bricklayer',
     },
     {
       id: '2',
       name: 'José Medina',
-      lastMessage: 'Sí, puedo revisar tu fuga hoy mismo.',
-      time: 'Ayer',
-      avatarUrl: '/images/professionals/jose-medina.jpg',
+      role: 'Plumber',
     },
     {
       id: '3',
-      name: 'Ramón Sánchez',
-      lastMessage: 'Necesito más detalles del trabajo.',
-      time: '2 días',
-      avatarUrl: '/images/professionals/ramon-sanchez.jpg',
+      name: 'Ramón Sanchez',
+      role: 'Electrician',
     },
   ];
 
   const messages: { [key: string]: Message[] } = {
     '1': [
-      { id: 1, sender: 'other', text: 'Hola Mario, ¿estás disponible el lunes por la mañana?', time: '10:00 AM' },
-      { id: 2, sender: 'me', text: 'Sí, podría ir el lunes a las 9 AM. ¿Qué tipo de trabajo es?', time: '10:05 AM' },
-      { id: 3, sender: 'other', text: 'Necesito que instales una lámpara de techo en la sala.', time: '10:10 AM' },
-      { id: 4, sender: 'me', text: 'Ok, nos vemos el lunes a las 9 AM.', time: '10:30 AM' },
+      {
+        id: 1,
+        sender: 'other',
+        text: 'Hello my name is Mario Rivas. How can I help you today?',
+      },
     ],
-    '2': [
-      { id: 1, sender: 'other', text: 'Hola José, tengo una fuga de agua en el baño.', time: 'Ayer 3:00 PM' },
-      { id: 2, sender: 'me', text: 'Sí, puedo revisar tu fuga hoy mismo. ¿Cuál es tu dirección?', time: 'Ayer 3:15 PM' },
-    ],
+    // Se añaden arrays vacíos para los otros usuarios para que no de error al seleccionarlos
+    '2': [],
+    '3': [],
   };
 
-  const currentConversationMessages = selectedConversation ? messages[selectedConversation] : [];
-  const currentConversation = selectedConversation ? conversations.find(conv => conv.id === selectedConversation) : null;
+  const currentConversationMessages = selectedConversationId ? messages[selectedConversationId] || [] : [];
+  const currentConversation = conversations.find(conv => conv.id === selectedConversationId);
+  const currentConversationIndex = conversations.findIndex(c => c.id === currentConversation?.id);
+
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    if (currentMessage.trim() && selectedConversation) {
-      const newMessage: Message = {
-        id: currentConversationMessages.length + 1,
-        sender: 'me',
-        text: currentMessage,
-        time: new Date().toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit' }),
-      };
-
-      alert(`Simulando envío de mensaje: ${currentMessage}`); 
-      setCurrentMessage('');
+    if (currentMessage.trim() && selectedConversationId) {
+      alert(`Simulando envío a ${currentConversation?.name}: ${currentMessage}`);
     }
   };
 
   return (
-    <div className="container mx-auto py-8 px-4 flex flex-col md:flex-row h-[calc(100vh-16rem)]">
-      {/* Columna de Conversaciones */}
-      <aside className="w-full md:w-1/4 bg-white rounded-lg shadow-md overflow-y-auto mb-6 md:mb-0 md:mr-6 flex-shrink-0">
-        <h2 className="text-xl font-bold text-gray-800 p-4 border-b">Conversaciones</h2>
-        {conversations.map((conv) => (
-          <div
-            key={conv.id}
-            className={`flex items-center p-4 border-b cursor-pointer ${
-              selectedConversation === conv.id ? 'bg-red-50' : 'hover:bg-gray-50'
-            }`}
-            onClick={() => setSelectedConversation(conv.id)}
-          >
-            {conv.avatarUrl ? (
-              <Image
-                src={conv.avatarUrl}
-                alt={conv.name}
-                width={40}
-                height={40}
-                className="rounded-full mr-3 object-cover"
-              />
-            ) : (
-              <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mr-3">
-                {conv.name.charAt(0)}
-              </div>
-            )}
-            <div>
-              <p className="font-semibold text-gray-800">{conv.name}</p>
-              <p className="text-sm text-gray-600 truncate">{conv.lastMessage}</p>
-              <p className="text-xs text-gray-500">{conv.time}</p>
-            </div>
+    <div className="flex h-screen bg-gray-200 font-sans">
+      {/* Columna de Contactos (Sidebar) */}
+      <aside className="w-[320px] bg-[#c02026] text-white p-6 flex flex-col flex-shrink-0">
+        <h2 className="text-3xl font-normal mb-6">Messages</h2>
+        
+        <div className="relative mb-8">
+          <input
+            type="text"
+            placeholder="Find your contact"
+            className="w-full bg-[#c02026] border border-[#a01c20] rounded-full py-2.5 pl-4 pr-10 text-white placeholder-pink-200 focus:outline-none"
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-4 text-pink-200">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+            </svg>
           </div>
-        ))}
+        </div>
+
+        <ul className="space-y-4">
+          {conversations.map((conv, index) => (
+            <li
+              key={conv.id}
+              className={`flex items-center p-2 rounded-lg cursor-pointer ${
+                selectedConversationId === conv.id ? 'bg-black/20' : 'hover:bg-black/10'
+              }`}
+              onClick={() => setSelectedConversationId(conv.id)}
+            >
+              <div className={`flex-shrink-0 w-[50px] h-[50px] rounded-full mr-4 border-2 border-white flex items-center justify-center ${avatarColors[index % avatarColors.length]}`}>
+                <span className="text-xl font-semibold text-white">
+                  {conv.name.charAt(0)}
+                </span>
+              </div>
+              <span className="font-medium text-lg">{conv.name}</span>
+            </li>
+          ))}
+        </ul>
       </aside>
 
-      {/* Área de Chat */}
-      <main className="w-full md:w-3/4 bg-white rounded-lg shadow-md flex flex-col">
+      {/* Área de Chat Principal */}
+      <main className="flex-1 bg-[#f7f7f7] flex flex-col">
         {currentConversation ? (
           <>
             {/* Encabezado del Chat */}
-            <div className="p-4 border-b flex items-center">
-              {currentConversation.avatarUrl ? (
-                <Image
-                  src={currentConversation.avatarUrl}
-                  alt={currentConversation.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full mr-3 object-cover"
-                />
-              ) : (
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-semibold mr-3">
-                  {currentConversation.name.charAt(0)}
-                </div>
-              )}
-              <h2 className="text-xl font-bold text-gray-800">{currentConversation.name}</h2>
+            <div className="p-4 border-b border-gray-300 bg-[#e0e0e0] flex items-center">
+               <div className={`flex-shrink-0 w-[50px] h-[50px] rounded-full mr-4 flex items-center justify-center ${avatarColors[currentConversationIndex % avatarColors.length]}`}>
+                  <span className="text-xl font-semibold text-white">
+                      {currentConversation.name.charAt(0)}
+                  </span>
+               </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-800">{currentConversation.name}</h2>
+                <p className="text-sm text-gray-600">{currentConversation.role}</p>
+              </div>
             </div>
 
             {/* Cuerpo del Chat (mensajes) */}
-            <div className="flex-grow p-4 overflow-y-auto space-y-4">
-              {currentConversationMessages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`flex ${msg.sender === 'me' ? 'justify-end' : 'justify-start'}`}
-                >
+            <div className="flex-1 p-8 overflow-y-auto flex flex-col items-start space-y-4">
+              <div className="self-center bg-[#f8c8dc] text-white px-4 py-1 rounded-full text-sm my-4">
+                Today
+              </div>
+              {currentConversationMessages.length > 0 ? (
+                currentConversationMessages.map((msg) => (
                   <div
-                    className={`max-w-[70%] p-3 rounded-lg ${
-                      msg.sender === 'me'
-                        ? 'bg-red-700 text-white rounded-br-none'
-                        : 'bg-gray-200 text-gray-800 rounded-bl-none'
-                    }`}
+                    key={msg.id}
+                    className="max-w-[65%] p-3 px-4 rounded-2xl bg-[#e0e0e0] text-gray-800 rounded-bl-md"
                   >
-                    <p className="text-sm">{msg.text}</p>
-                    <span className="text-xs opacity-80 mt-1 block text-right">
-                      {msg.time}
-                    </span>
+                    <p>{msg.text}</p>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <div className="self-center text-gray-500">No hay mensajes en esta conversación.</div>
+              )}
             </div>
 
-            {/* Formulario de envío de mensajes */}
-            <form onSubmit={handleSendMessage} className="p-4 border-t flex items-center">
+            {/* Formulario de envío de mensajes (restaurado) */}
+            <form onSubmit={handleSendMessage} className="p-4 flex items-center gap-4">
               <input
                 type="text"
                 value={currentMessage}
                 onChange={(e) => setCurrentMessage(e.target.value)}
-                placeholder="Escribe tu mensaje..."
-                className="flex-grow px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-red-500 focus:border-red-500"
+                className="flex-grow px-5 py-3 border-none rounded-full bg-[#fce4ec] text-gray-700 focus:outline-none focus:ring-0"
               />
-              <Button type="submit" className="ml-4 px-6 py-2">
-                Enviar
-              </Button>
+              <button
+                type="submit"
+                className="px-8 py-3 bg-[#f8c8dc] text-white font-bold rounded-full hover:bg-[#f4b2d0] transition-colors"
+              >
+                Send
+              </button>
             </form>
           </>
         ) : (
