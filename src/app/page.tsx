@@ -78,7 +78,7 @@ export default function Home() {
 
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/plumber.jpg"
+              src="/images/services/Why Is There Styrofoam In My Toilet Tank_ – Make Your Home Safer.jpeg"
               alt="Fontanero"
               width={250}
               height={200}
