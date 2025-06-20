@@ -98,17 +98,17 @@ export default function Home() {
             <h3 className="font-semibold text-3xl mb-8">Para Clientes</h3>
             <div className="space-y-8">
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/search.png" alt="Buscar" width={80} height={80} className="mb-4 invert" /> {/* invert para iconos blancos */}
+                <Image src="/images/backgrounds/image (6).png" alt="Buscar" width={80} height={80} className="mb-4 invert" /> {/* invert para iconos blancos */}
                 <h4 className="font-semibold text-2xl mb-2">1. Busca</h4>
                 <p className="text-lg">Encuentra el profesional ideal por categoría, ubicación o calificación.</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/contact.png" alt="Contacta" width={80} height={80} className="mb-4 invert" />
+                <Image src="/images/backgrounds/image (4).png" alt="Contacta" width={80} height={80} className="mb-4 invert" />
                 <h4 className="font-semibold text-2xl mb-2">2. Contacta</h4>
                 <p className="text-lg">Envía un mensaje o llama directamente al profesional de tu elección.</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/hire.png" alt="Contrata" width={80} height={80} className="mb-4 invert" />
+                <Image src="/images/backgrounds/image (1).png" alt="Contrata" width={80} height={80} className="mb-4 invert" />
                 <h4 className="font-semibold text-2xl mb-2">3. Contrata</h4>
                 <p className="text-lg">Acuerda los detalles del servicio y califica la experiencia.</p>
               </div>
@@ -120,17 +120,17 @@ export default function Home() {
             <h3 className="font-semibold text-3xl mb-8">Para Expertos</h3>
             <div className="space-y-8">
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/register.png" alt="Regístrate" width={80} height={80} className="mb-4 invert" />
+                <Image src="/images/backgrounds/image (2).png" alt="Regístrate" width={80} height={80} className="mb-4 invert" />
                 <h4 className="font-semibold text-2xl mb-2">1. Regístrate</h4>
                 <p className="text-lg">Crea tu perfil y destaca tus habilidades.</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/offer-services.png" alt="Ofrece tus servicios" width={80} height={80} className="mb-4 invert" />
+                <Image src="/images/backgrounds/image (5).png" alt="Ofrece tus servicios" width={80} height={80} className="mb-4 invert" />
                 <h4 className="font-semibold text-2xl mb-2">2. Ofrece tus servicios</h4>
                 <p className="text-lg">Describe lo que haces y tu disponibilidad.</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image src="/images/icons/get-clients.png" alt="Obtén clientes" width={80} height={80} className="mb-4 invert" />
+                <Image src="/images/backgrounds/image (3).png" alt="Obtén clientes" width={80} height={80} className="mb-4 invert" />
                 <h4 className="font-semibold text-2xl mb-2">3. Obtén clientes</h4>
                 <p className="text-lg">Conecta con personas que necesitan tus servicios en tu zona.</p>
               </div>
