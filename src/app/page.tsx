@@ -1,27 +1,26 @@
 import Button from '@/components/Button';
 import Image from 'next/image';
-import Link from 'next/link'; 
-
+import Link from 'next/link';
+import React from 'react'
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">
-      
+
       <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white overflow-hidden p-4">
         <Image
-          src="/images/backgrounds/hero-background.jpg" 
+          src="/images/backgrounds/hero-background.jpg"
           alt="Profesional trabajando"
-          fill 
+          fill
           style={{ objectFit: 'cover', objectPosition: 'center' }}
-          className="absolute inset-0 z-0 brightness-[0.7]" 
-          priority
-        />
+          className="absolute inset-0 z-0 brightness-[0.7]"
+          priority />
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
             ¿Necesitas una reparación rápida?
           </h1>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/search">
-            <Button className="px-6 py-3 rounded-full text-lg">Buscar Ahora</Button>
+              <Button className="px-6 py-3 rounded-full text-lg">Buscar Ahora</Button>
             </Link>
             <Button variant="outline" className="px-6 py-3 rounded-full text-lg border-white text-white hover:bg-white hover:text-red-700">
               Llámanos/Envíanos un mensaje
@@ -30,8 +29,8 @@ export default function Home() {
         </div>
       </section>
 
-      
-      <section id="aboutus"className="py-16 px-4 bg-white w-full">
+
+      <section id="aboutus" className="py-16 px-4 bg-white w-full">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-6">Sobre Nosotros</h2>
@@ -41,64 +40,60 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <Image
-              src="/images/backgrounds/about-us-placeholder.jpg" 
+              src="/images/backgrounds/about-us-placeholder.jpg"
               alt="Sobre nosotros"
               width={500}
               height={350}
-              className="rounded-lg shadow-xl"
-            />
+              className="rounded-lg shadow-xl" />
           </div>
         </div>
       </section>
 
-      
+
       <section id="ourservices" className="py-16 px-4 w-full bg-gray-50">
         <h2 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">Nuestros Servicios</h2>
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
-        
+
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/electrician.jpg" 
+              src="/images/services/electrician.jpg"
               alt="Electricista"
-              width={250} 
+              width={250}
               height={200}
-              className="rounded-md object-cover mb-4"
-            />
+              className="rounded-md object-cover mb-4" />
             <h3 className="text-xl font-semibold text-gray-800">Electricista</h3>
             <p className="text-gray-600 text-sm mt-2">Instalaciones, reparaciones, cableado.</p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/mason.jpg" 
+              src="/images/services/mason.jpg"
               alt="Albañil"
               width={250}
               height={200}
-              className="rounded-md object-cover mb-4"
-            />
+              className="rounded-md object-cover mb-4" />
             <h3 className="text-xl font-semibold text-gray-800">Albañil</h3>
             <p className="text-gray-600 text-sm mt-2">Construcción y reparación de estructuras.</p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <Image
-              src="/images/services/plumber.jpg" 
+              src="/images/services/Why Is There Styrofoam In My Toilet Tank_ – Make Your Home Safer.jpeg"
               alt="Fontanero"
               width={250}
               height={200}
-              className="rounded-md object-cover mb-4"
-            />
+              className="rounded-md object-cover mb-4" />
             <h3 className="text-xl font-semibold text-gray-800">Fontanero</h3>
             <p className="text-gray-600 text-sm mt-2">Reparación de tuberías, grifos, inodoros.</p>
           </div>
         </div>
       </section>
 
-      
+
       <section id='functions' className="py-16 px-4 w-full bg-red-700 text-white">
         <h2 className="text-4xl font-extrabold mb-12 text-center">¿Cómo funciona?</h2>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          
+
           <div className="flex flex-col items-center text-center">
             <h3 className="font-semibold text-3xl mb-8">Para Clientes</h3>
             <div className="space-y-8">
@@ -120,7 +115,7 @@ export default function Home() {
             </div>
           </div>
 
-          
+
           <div className="flex flex-col items-center text-center mt-12 md:mt-0">
             <h3 className="font-semibold text-3xl mb-8">Para Expertos</h3>
             <div className="space-y-8">
@@ -151,9 +146,12 @@ export default function Home() {
         </p>
 
         <Link href="/faq">
-        <Button variant="outline" >Ir a Preguntas Frecuentes</Button>
+          <Button variant="outline">Ir a Preguntas Frecuentes</Button>
         </Link>
       </section>
     </div>
+
   );
+
+
 }
