@@ -1,5 +1,8 @@
 import Link from 'next/link';
-import Button from '@/components/Button';
+//import { signIn } from 'next-auth/react'
+import Button from '@/components/Button'
+
+
 
 export default function SignInPage() {
   return (
@@ -13,10 +16,10 @@ export default function SignInPage() {
             Bienvenido de nuevo.
           </p>
         </div>
-        
+
         <div className="mt-8 space-y-4">
           <button className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            
+
             <span className="mr-2">G</span> Iniciar sesión con Google
           </button>
         </div>
@@ -29,7 +32,7 @@ export default function SignInPage() {
           </div>
         </div>
 
-        
+
         <form className="mt-8 space-y-6" action="#" method="POST">
           <div>
             <label htmlFor="email-address" className="sr-only">Correo electrónico</label>
@@ -77,11 +80,11 @@ export default function SignInPage() {
           </div>
 
           <Link href="/welcome-back">
-          <Button type="submit" className="w-full">
-            Iniciar sesión
-          </Button>
+            <Button type="submit" className="w-full">
+              Iniciar sesión
+            </Button>
           </Link>
-          
+
         </form>
 
         <div className="text-center text-sm text-black">
